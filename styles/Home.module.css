@@ -113,6 +113,11 @@
   margin-left: 0.5rem;
 }
 
+.hero{
+  margin-top: 50px;
+}
+
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
