@@ -8,21 +8,21 @@ type LayaoutProps = {
 
 export default function Layaut({ children }:LayaoutProps) {
   return (
-    <div className={styles.container}>
+    <div >
       <Head>
         <title>Inventario</title>
         <meta name="description" content="App inventario" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />       
       </Head>
+
       <header className={styles.hero}>
-        Navbar
+        <p>Navbar</p> 
       </header>
 
       <main className={styles.main}>
        {
            children
-       }
-       
+       }       
       </main>
 
       <footer className={styles.footer}>

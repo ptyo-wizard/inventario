@@ -6,11 +6,12 @@ const Home: NextPage = () => {
   return (
     <Layaut>
       {
-        <h1 className={styles.title}>
-         hola mundo
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ut distinctio illo voluptatem voluptates quae numquam sapiente? Quaerat non quis aliquam at ipsum corrupti accusantium ea, provident voluptas consequuntur sapiente.
-         
-       </h1>
+        <div className={styles.container}>
+          <h1 className={styles.title}>
+          hola mundo        
+        </h1>
+
+       </div>
       }
     </Layaut>
   )
