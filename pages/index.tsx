@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import Button from '@material-ui/core/Button'
 import useSWR from 'swr'
 import { fetcher } from '../utils/fetcher'
-import ProductTable from '../components/product_table.tsx'
+import ProductTable from '../components/product_table'
 
 
 const Home: NextPage = () => {
