@@ -1,15 +1,17 @@
 import type { NextPage } from 'next'
 import Layaut from '../components/layaout'
 import styles from '../styles/Home.module.css'
+import Button from '@material-ui/core/Button'
+
 
 const Home: NextPage = () => {
   return (
     <Layaut>
       {
         <div className={styles.container}>
-          <h1 className={styles.title}>
-          hola mundo        
-        </h1>
+          <Button variant="contained" color="primary">
+            button
+          </Button>
 
        </div>
       }
