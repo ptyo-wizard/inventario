@@ -97,7 +97,7 @@ const ProductTable = ( {data,setData,isInput=true,isOutput = true, isDelete=fals
              
              
               <TableCell align="right">{row.price}</TableCell>
-              <TableCell align="right">{row.output - row.input}</TableCell>
+              <TableCell align="right">{ row.input - row.output}</TableCell>
               {
               isDelete && (
                 <TableCell align="right">
