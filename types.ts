@@ -16,3 +16,19 @@ export interface ProductData {
     price: number    
   }
   
+
+  export type FormProps = {
+    data: ProductData,
+    submit: (body: ProductData) => void
+  }
+  
+  
+  export type FormProductsProps = {
+    title?: string,
+    dataForm: FormProps,
+    
+    //fetch: FetchProps,
+    count?:React.ReactNode,
+    labelButton?:string,
+    children: React.ReactNode
+  }
