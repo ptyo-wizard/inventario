@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Navbar from './navbar'
 
 type LayaoutProps = {
     children: React.ReactNode
@@ -15,9 +16,9 @@ export default function Layaut({ children }:LayaoutProps) {
         <link rel="icon" href="/favicon.ico" />       
       </Head>
 
-      <header className={styles.hero}>
-        <p>Navbar</p> 
-      </header>
+      
+        <Navbar></Navbar>
+      
 
       <main className={styles.main}>
        {
