@@ -19,13 +19,12 @@ const useStyles = makeStyles((theme) => ({
             display: "none"
         }
     },
-    menuItemLink:{
-        color:theme.palette.common.white
-    },
+    
     //evita que el contenido quede debajo de navbar
     offset: theme.mixins.toolbar,
     menuButton: {
-        marginRight: theme.spacing(2)
+        marginRight: theme.spacing(2),
+        color:theme.palette.common.white
     }
 })
 );
@@ -46,26 +45,33 @@ export default function NavbBar() {
                         <a >LOGO</a>
                     </Typography>
                     <div className={classes.sectionDesktop}>
-                        <Button className={classes.menuButton}>
-                            <Link href="/" >
-                                <a className={classes.menuItemLink}>Inventario</a>
+                       
+                            <Link href="/"  passHref>
+                                <Button className={classes.menuButton} component="a">
+                                    Inventario
+                                </Button>
                             </Link>
-                        </Button>
-                        <Button className={classes.menuButton}>
-                            <Link href="/product_entry" >
-                                <a className={classes.menuItemLink}>Entradas</a>
+                        
+                             <Link href="/product_entry" passHref >
+                             <Button className={classes.menuButton} component="a">
+                                    Entradas
+                                </Button>
                             </Link>
-                        </Button>
-                        <Button className={classes.menuButton}>
-                            <Link href="/product_output">
-                                <a className={classes.menuItemLink}>Salidas</a>
+                        
+                        
+                            <Link href="/product_output" passHref>
+                            <Button className={classes.menuButton} component="a">
+                                Salidas
+                                </Button>
                             </Link>
-                        </Button>
-                        <Button className={classes.menuButton}>
-                            <Link href="/create_product">
-                                <a className={classes.menuItemLink}>Nuevo</a>
+                                        
+
+                            <Link href="/create_product" passHref>
+                            <Button className={classes.menuButton} component="a">
+                                Nuevo
+                                </Button>
                             </Link>
-                        </Button>
+                        
                     </div>
                     <IconButton
                         edge="end"
