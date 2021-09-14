@@ -32,3 +32,11 @@ export interface ProductData {
     labelButton?:string,
     children: React.ReactNode
   }
+
+  export type FetchProps ={
+    error: string,
+    isSucces: boolean,
+    isLoading: boolean,
+    isFailed: boolean,
+    data: ProductData[] | null,//Products | null,
+  }
