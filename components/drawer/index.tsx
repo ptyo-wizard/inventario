@@ -71,6 +71,11 @@ export default function TempDrawer({open,setOpen}:TempDrawerProps ) {
             <ListItemText primary="Salidas" />
           </ListItem>
         </Link>
+        <Link href="/create_product" passHref>
+          <ListItem button component="a">            
+            <ListItemText primary="Nuevo" />
+          </ListItem>
+        </Link>
 
       </List>
       <Divider />
