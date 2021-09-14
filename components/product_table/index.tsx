@@ -14,35 +14,35 @@ import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
 
 type ProductTableProps = {
-    data:ProductData[], 
-    setData?:(result: SendData[])=>void,
-    isInput?:boolean,
-    isOutput?:boolean,
-    isDelete?:boolean
+  data: ProductData[],
+  setData?: (result: SendData[]) => void,
+  isInput?: boolean,
+  isOutput?: boolean,
+  isDelete?: boolean
 }
 
 const useStyles = makeStyles({
-    table: {
-      minWidth: 650,
-    },
-    linkDetail:{
-      textDecoration:"underline"
-    }
+  table: {
+    minWidth: 650,
+  },
+  linkDetail: {
+    textDecoration: "underline"
+  }
 });
 
-const ProductTable = ( {data,setData,isInput=true,isOutput = true, isDelete=false}: ProductTableProps) => {
-    
-    const classes = useStyles();   
-    const deleteElement = (id:string | number | undefined) =>{
-      console.log("id de elemento a del ", id,data)
-      const result = data.filter(item => item.code !== id);
-      //console.log("datos ", data)
-      //if(result!)
-        setData!(result);
-    }
+const ProductTable = ({ data, setData, isInput = true, isOutput = true, isDelete = false }: ProductTableProps) => {
 
-    return (
-        <TableContainer component={Paper}>
+  const classes = useStyles();
+  const deleteElement = (id: string | number | undefined) => {
+    console.log("id de elemento a del ", id, data)
+    const result = data.filter(item => item.code !== id);
+    //console.log("datos ", data)
+    //if(result!)
+    setData!(result);
+  }
+
+  return (
+    <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -58,8 +58,8 @@ const ProductTable = ( {data,setData,isInput=true,isOutput = true, isDelete=fals
                 <TableCell align="right">Salidas</TableCell>
               )
             }
-            
-            
+
+
             <TableCell align="right">Precio</TableCell>
             <TableCell align="right">Saldo</TableCell>
             {
@@ -74,46 +74,46 @@ const ProductTable = ( {data,setData,isInput=true,isOutput = true, isDelete=fals
             <TableRow key={row.code}>
               <TableCell component="th" scope="row">
                 {
-                  row._id ? 
+                  row._id ?
                     <Link href={`/product/${row._id}`} passHref>
                       <a className={classes.linkDetail}>{row.code}</a>
                     </Link>
-                  : row.code
-                  
+                    : row.code
+
                 }
-                
+
               </TableCell>
               <TableCell align="right">{row.description}</TableCell>
               {
-              isInput && (
-                <TableCell align="right">{row.input}</TableCell>
-              )
+                isInput && (
+                  <TableCell align="right">{row.input}</TableCell>
+                )
               }
               {
-              isOutput && (
-                <TableCell align="right">{row.output}</TableCell>
-              )
+                isOutput && (
+                  <TableCell align="right">{row.output}</TableCell>
+                )
               }
-             
-             
+
+
               <TableCell align="right">{row.price}</TableCell>
-              <TableCell align="right">{ row.input - row.output}</TableCell>
+              <TableCell align="right">{row.input - row.output}</TableCell>
               {
-              isDelete && (
-                <TableCell align="right">
-                  <IconButton aria-label="" onClick={()=>deleteElement(row.code)}>
-                    <DeleteOutlineIcon></DeleteOutlineIcon>
-                  </IconButton>
-                </TableCell>
-              )
-            }
+                isDelete && (
+                  <TableCell align="right">
+                    <IconButton aria-label="" onClick={() => deleteElement(row.code)}>
+                      <DeleteOutlineIcon></DeleteOutlineIcon>
+                    </IconButton>
+                  </TableCell>
+                )
+              }
             </TableRow>
           ))}
         </TableBody>
-        </Table>
+      </Table>
     </TableContainer>
 
-    )
+  )
 }
 
 export default ProductTable

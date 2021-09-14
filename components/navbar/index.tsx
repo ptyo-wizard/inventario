@@ -38,7 +38,7 @@ export default function NavbBar() {
 
     return (
 
-        <div className="hero">
+        <div>
             <AppBar position="static">
                 <Toolbar>
 
@@ -79,10 +79,10 @@ export default function NavbBar() {
                 </Toolbar>
 
             </AppBar>
-            <div className={classes.offset}></div>
-            {
+            {/* <div className={classes.offset}></div>  */}
+            
                 <TempDrawer open={openDrawer} setOpen={setOpenDrawer}></TempDrawer>
-            }
+            
         </div>
     );
 }

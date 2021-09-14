@@ -14,12 +14,8 @@ export default function Layaut({ children }:LayaoutProps) {
         <title>Inventario</title>
         <meta name="description" content="App inventario" />
         <link rel="icon" href="/favicon.ico" />       
-      </Head>
-
-      
+      </Head>      
         <Navbar></Navbar>
-      
-
       <main className={styles.main}>
        {
            children

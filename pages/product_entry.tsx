@@ -12,7 +12,7 @@ export default function ProductEntry() {
   return (
     <Layaut>
       <Container maxWidth="lg">
-      <h2 className="title">Entradas de productos</h2>
+        <h2 className="title">Entradas de productos</h2>
         <ProductTable data={data} isOutput={false}></ProductTable>
         
       </Container>

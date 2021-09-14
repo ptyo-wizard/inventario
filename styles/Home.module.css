@@ -9,7 +9,7 @@
 }
 
 .main {
-  padding: 5rem 0;
+  padding: 1rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -34,17 +34,7 @@
 }
 
 
-.hero{
-  
-  position: fixed;
-  top:0;
-  left: 0;
-  height: 50px;
-  width: 100%;
-  
-  background-color: gray;
- 
-}
+
 
 
 @media (max-width: 600px) {

@@ -15,10 +15,10 @@ const Home: NextPage = () => {
   return (
     <Layaut>
       {
-        <div className={styles.container}>
+       
           <ProductTable data={data}></ProductTable>
 
-       </div>
+       
       }
     </Layaut>
   )
