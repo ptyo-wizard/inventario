@@ -7,6 +7,7 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import { Hidden } from '@material-ui/core';
 
 
 const useStyles = makeStyles({
@@ -80,10 +81,12 @@ export default function TempDrawer({open,setOpen}:TempDrawerProps ) {
   return (
     <div>
       
-        <React.Fragment key={"right"}>          
-          <Drawer anchor={"right"} open={open} onClose={toggleDrawer( false)}>
-            {list("right")}
-          </Drawer>
+        <React.Fragment key={"right"}>      
+          <Hidden lgUp>
+            <Drawer anchor={"right"} open={open} onClose={toggleDrawer( false)}>
+              {list("right")}
+            </Drawer>
+          </Hidden>    
         </React.Fragment>
       
       
