@@ -4,6 +4,7 @@ import {fetcher} from '../utils/fetcher';
 import Layaut from "../components/layaout";
 import ProductTable from '../components/product_table';
 import Container from '@material-ui/core/Container'
+import Typography from "@material-ui/core/Typography";
 
 
 export default function ProductEntry() {  
@@ -14,7 +15,9 @@ export default function ProductEntry() {
   return (
     <Layaut>
       <Container maxWidth="lg">
-        <h2 className="title">Salidas de productos</h2>
+        <Typography variant="h5" color="initial" align="center" gutterBottom>
+          productos de salida
+        </Typography> 
          <ProductTable data={data} isInput={false}></ProductTable>
       </Container>
          
