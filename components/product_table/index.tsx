@@ -21,14 +21,19 @@ type ProductTableProps = {
   isDelete?: boolean
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme)=>({
   table: {
     minWidth: 650,
   },
   linkDetail: {
     textDecoration: "underline"
+  },
+  headCell:{
+    background:"#344872",
+    color:theme.palette.common.white
   }
-});
+
+}));
 
 const ProductTable = ({ data, setData, isInput = true, isOutput = true, isDelete = false }: ProductTableProps) => {
 
@@ -46,25 +51,25 @@ const ProductTable = ({ data, setData, isInput = true, isOutput = true, isDelete
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Codigo</TableCell>
-            <TableCell align="right">Description</TableCell>
+            <TableCell className={classes.headCell}>Codigo</TableCell>
+            <TableCell align="right" className={classes.headCell}>Description</TableCell>
             {
               isInput && (
-                <TableCell align="right">Entradas</TableCell>
+                <TableCell align="right" className={classes.headCell}>Entradas</TableCell>
               )
             }
             {
               isOutput && (
-                <TableCell align="right">Salidas</TableCell>
+                <TableCell align="right" className={classes.headCell}>Salidas</TableCell>
               )
             }
 
 
-            <TableCell align="right">Precio</TableCell>
-            <TableCell align="right">Saldo</TableCell>
+            <TableCell align="right" className={classes.headCell}>Precio</TableCell>
+            <TableCell align="right" className={classes.headCell}>Saldo</TableCell>
             {
               isDelete && (
-                <TableCell align="right"></TableCell>
+                <TableCell align="right" className={classes.headCell}></TableCell>
               )
             }
           </TableRow>
@@ -75,7 +80,7 @@ const ProductTable = ({ data, setData, isInput = true, isOutput = true, isDelete
               <TableCell component="th" scope="row">
                 {
                   row._id ?
-                    <Link href={`/product/${row._id}`} passHref>
+                    <Link href={`/product/${row._id}`} >
                       <a className={classes.linkDetail}>{row.code}</a>
                     </Link>
                     : row.code
