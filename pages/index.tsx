@@ -5,6 +5,8 @@ import Button from '@material-ui/core/Button'
 import useSWR from 'swr'
 import { fetcher } from '../utils/fetcher'
 import ProductTable from '../components/product_table'
+import Typography from '@material-ui/core/Typography'
+import Container from '@material-ui/core/Container'
 
 
 const Home: NextPage = () => {
@@ -14,12 +16,14 @@ const Home: NextPage = () => {
 
   return (
     <Layaut>
-      {
-       
+      <Container maxWidth="lg">      
+      <Typography variant="h5" color="initial" align="center" gutterBottom>
+        Todos los productos
+      </Typography>        
           <ProductTable data={data}></ProductTable>
-
+      </Container>
        
-      }
+      
     </Layaut>
   )
 }
