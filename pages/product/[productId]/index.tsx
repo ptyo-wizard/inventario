@@ -35,6 +35,10 @@ const ProductDetail = () => {
     const { data, error } = useSWR(`http://localhost:3000/api/products/${productId}`, fetcher);
     if (error) return <h2>{error}</h2>
     if (!data) return <h2>No hay datos en dtalle {data}</h2>
+
+    const handleEdit = ()=>{
+        router.push(`/product/${productId}/edit`);
+    }
     return (
         <Layaout>
             <Container style={{marginTop:"2rem"}}>
@@ -45,7 +49,7 @@ const ProductDetail = () => {
             <div className={classes.containerBtn}>
                 <Button
                     variant="contained"
-                    onClick={() => { }}
+                    onClick={handleEdit}
                     type="button"
                     color="secondary"
                     
