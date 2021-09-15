@@ -2,7 +2,7 @@
 import React from 'react';
 import Modal from '@material-ui/core/Modal'
 import { FetchProps} from '../../types'
-import { Button } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -70,23 +70,34 @@ type ModalConfirmProps = {
     setOpen:(isOpen:boolean)=>void,
     stateFetch:FetchProps,
     accept:()=>void
+    messages?:{
+        loading:string,
+        success:string,
+        failed:string
+    }
 }
 
 
 
-const ModalConfirm = ({open,setOpen,stateFetch,accept}:ModalConfirmProps) => {
+const ModalConfirm = ({open,setOpen,stateFetch,accept,messages}:ModalConfirmProps) => {
     const classes = useStyles();
 
     const bodyConfirmModal = (
         <div className={classes.confirmModal}>
                    
         {
-                stateFetch.isLoading && <h3 className={classes.textLoading}>procesando ...</h3>
+                stateFetch.isLoading && 
+                <Typography className={classes.textLoading}>
+                    {messages?.loading}
+                </Typography>
+                
         }
         {
                 stateFetch.isSucces && !stateFetch.isFailed  &&(
                     <div>
-                        <h3 className={classes.textSuccess}>Elemento creado correctamente</h3>
+                        <Typography className={classes.textSuccess}>
+                            {messages?.success}
+                        </Typography>
                         <div className={classes.modalBtn}>
                             <Button 
                                 variant="contained" 
@@ -106,7 +117,9 @@ const ModalConfirm = ({open,setOpen,stateFetch,accept}:ModalConfirmProps) => {
             {
                 stateFetch.isFailed && (
                     <div>
-                        <h3 className={classes.textError}>No se pudo crear elemento</h3>
+                        <Typography className={classes.textError}>
+                            {messages?.failed}
+                        </Typography>
                         <div className={classes.modalBtn}>
                             <Button 
                                 variant="contained"                               
