@@ -3,7 +3,7 @@ import {fetcher} from '../utils/fetcher';
 import useSWR from "swr";
 import Layaut from "../components/layaout";
 import ProductTable from '../components/product_table';
-import { Container } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 
 
 export default function ProductEntry() {
@@ -12,9 +12,10 @@ export default function ProductEntry() {
   return (
     <Layaut>
       <Container maxWidth="lg">
-        <h2 className="title">Entradas de productos</h2>
-        <ProductTable data={data} isOutput={false}></ProductTable>
-        
+        <Typography variant="h5" color="initial" align="center" gutterBottom>
+          Productos de entrada
+        </Typography> 
+        <ProductTable data={data} isOutput={false}></ProductTable>        
       </Container>
       
       
