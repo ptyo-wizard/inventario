@@ -1,40 +1,37 @@
 import React, {useState} from 'react'
 import { useRouter } from 'next/router';
-import useSWR from 'swr';
+
 import useFetch from '../../../../hooks/useFetch';
-import { ProductData,  FormProps } from '../../../../types'
-import FormProducts from '../../../../components/product_form';
+import { ProductData } from '../../../../types'
+
 import Layaut from '../../../../components/layaout';
 import ModalFetch from '../../../../components/modal/modal_fetch'
+import ModalConfirm from '../../../../components/modal/modal_confirm'
 import Container from '@material-ui/core/Container';
-import { fetcher } from '../../../../utils/fetcher';
 
 
 
 
-export default function EditProducts (){
+
+export default function DeleteProducts (){
     const router = useRouter();    
     const productId = router.query.productId;
     const {stateFetch, fetchData,resetState} = useFetch();
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [confirmOpen, setConfirmOpen] = useState(false);
+    const [accept, setAccept] = useState(false);
     
-    const { data, error } = useSWR(`http://localhost:3000/api/products/${productId}`, fetcher);    
-    if (error) return <h2>{error}</h2>
-    if (!data) return <h2>No hay datos  {data}</h2>    
     
 
-    const editProducts = async (body:ProductData) => {
-        const { _id } = data;
-        fetchData({ url: `http://localhost:3000/api/products/${_id}`, method: 'PUT', body });     
+    const deleteProducts = async (body:ProductData) => {        
+        fetchData({ url: `http://localhost:3000/api/products/${productId}`, method: 'DELETE', body });     
         setModalIsOpen(true)   ;
       };
     
-      
-      const dataForm:FormProps = {
-        data:data,
-        submit: editProducts//=>{console.log("ya se quiere enviar producto")}
+    const handleConfirm = (confirm:boolean)=>{
+        setAccept(confirm);
     }
-    
+      
     const handleAcept = ()=> {
         if(stateFetch.isSucces){            
             setModalIsOpen(false);
@@ -49,9 +46,14 @@ export default function EditProducts (){
     return (
         <Layaut>
             <Container >
-            <FormProducts title='Editar producto' dataForm={dataForm}   labelButton='Editar'>     
+            <ModalConfirm
+                open={confirmOpen} 
+                setOpen={setConfirmOpen}                 
+                accept={handleConfirm}
                 
-            </FormProducts>
+                messages="Seguto de querer elomomar este elemento"
+                ></ModalConfirm>
+           
             <ModalFetch 
                 open={modalIsOpen} 
                 setOpen={setModalIsOpen} 
@@ -59,11 +61,12 @@ export default function EditProducts (){
                 accept={handleAcept}
                 messages={{
                     loading:"procesando.....",
-                    success:"Elemento editado correctamente",
-                    failed:"Error, no se pudo edita elemento"
+                    success:"Elemento eliminado correctamente",
+                    failed:"Error, no se pudo eliminar elemento"
 
                 }}
-                ></ModalFetch>
+                />
+                
             </Container>
         </Layaut>
     )

@@ -7,7 +7,7 @@ import FormProduct from '../product_form'
 import { Button, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ModalData from '../modal/modal_data'
-import ModalConfirm from '../modal/modal_confirm'
+import ModalFetch from '../modal/modal_fetch'
 
 
 
@@ -119,7 +119,17 @@ export const NewProduct = () => {
             </FormProduct>
 
             <ModalData buffer={buffer} setBuffer={setBuffer} open={modalIsOpen} setOpen={setModalIsOpen} />
-            <ModalConfirm open={modalConfirm} setOpen={setModalConfirm} stateFetch={stateFetch} accept={handleAccept} />
+            <ModalFetch 
+                open={modalConfirm} 
+                setOpen={setModalConfirm} 
+                stateFetch={stateFetch} 
+                accept={handleAccept} 
+                messages={{
+                    loading:"procesando...",
+                    success:"Elemento creado correctamente",
+                    failed:"Falla al crear Elemento"
+                }}
+            />
 
         </Layaut>
 
