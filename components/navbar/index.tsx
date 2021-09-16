@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar'
 import IconButton from '@material-ui/core/IconButton'
 import { Typography, Toolbar, Button } from "@material-ui/core";
 import MenuIcon from '@material-ui/icons/Menu'
+import AddBoxIcon from '@material-ui/icons/AddBox';
 import { makeStyles } from '@material-ui/core'
 import TempDrawer from '../drawer'
 
@@ -70,6 +71,11 @@ export default function NavbBar() {
                             <Button className={classes.menuButton} component="a">
                                 Nuevo
                                 </Button>
+                            </Link>
+                            <Link href="/total" passHref>
+                                <IconButton aria-label="totales" onClick={()=>{}} className={classes.menuButton}>
+                                    <AddBoxIcon></AddBoxIcon>
+                                </IconButton>
                             </Link>
                         
                     </div>
