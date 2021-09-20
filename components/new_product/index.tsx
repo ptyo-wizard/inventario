@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router'
-import { FormProps, ProductData, SendData } from '../../types'
+import { FormProps, ProductData, SendData, InputOrOutput } from '../../types'
 import useFetch from '../../hooks/useFetch'
 import Layaut from '../layaout'
 import FormProduct from '../product_form'
@@ -42,7 +42,7 @@ const dataTemp: ProductData = {
     price: 0
 }
 
-export const NewProduct = () => {
+export const NewProduct = (process: InputOrOutput ) => {
     const [buffer, setBuffer] = useState<SendData[]>([])
     const { stateFetch, fetchData, resetState } = useFetch();
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -88,7 +88,7 @@ export const NewProduct = () => {
             <FormProduct
                 title='Crear producto nuevo'
                 dataForm={dataForm}
-                //fetch={state}
+                process={process}
                 count={
                     buffer.length > 0 && (
                         <a href="#" onClick={handleBuffer} className={classes.countLabel} >
