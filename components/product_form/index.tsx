@@ -8,6 +8,8 @@ import { Button } from '@material-ui/core'
 
 import { FormProductsProps } from '../../types';
 import useForm from '../../hooks/useForm';
+import { EventNoteTwoTone } from '@material-ui/icons'
+
 
 
 
@@ -15,6 +17,7 @@ const ProductForm = ({
     title,
     dataForm,
     //fetch,
+    process,
     count,
     children,
     labelButton
@@ -63,29 +66,38 @@ const ProductForm = ({
                                     fullWidth
                                 />
                             </Grid>
-                            <Grid xs={12} sm={12} item>
-                                <TextField
-                                    id="input"
-                                    name="input"
-                                    label="Entradas"
-                                    value={stateForm.input}
-                                    onChange={handleChange}
-                                    variant="outlined"
-                                    fullWidth
+                            {
+                                process.process === 'input' && (
+                                    <Grid xs={12} sm={12} item>
+                                        <TextField
+                                            id="input"
+                                            name="input"
+                                            label="Entradas"
+                                            value={stateForm.input}
+                                            onChange={handleChange}
+                                            variant="outlined"
+                                            fullWidth
 
-                                />
-                            </Grid>
-                            <Grid xs={12} sm={12} item>
-                                <TextField
-                                    id="output"
-                                    name="output"
-                                    label="Salidas"
-                                    value={stateForm.output}
-                                    onChange={handleChange}
-                                    variant="outlined"
-                                    fullWidth
-                                />
-                            </Grid>
+                                        />
+                                    </Grid>
+                                )
+                            }
+                            {
+                                process.process === 'output' && (
+                                    <Grid xs={12} sm={12} item>
+                                        <TextField
+                                            id="output"
+                                            name="output"
+                                            label="Salidas"
+                                            value={stateForm.output}
+                                            onChange={handleChange}
+                                            variant="outlined"
+                                            fullWidth
+                                        />
+                                    </Grid>
+                                )
+                            }
+
                             <Grid xs={12} sm={12} item>
                                 <TextField
                                     id="price"
