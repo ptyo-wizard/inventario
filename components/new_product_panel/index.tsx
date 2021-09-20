@@ -59,7 +59,7 @@ export default function Panel() {
             </Typography>
             <Grid container spacing={2} justifyContent="flex-start" alignItems="center">
                 <Grid container item md={3} sm={3} xs={12} >
-                    <Link href="/" passHref>
+                    <Link href="/process/entry" passHref>
                         <div className={classes.buttonGrid}>
                             <Typography variant="h6" color="initial" align="center">Nueva entrada</Typography>
                             <IconButton aria-label="" onClick={() => { }} color="inherit">
