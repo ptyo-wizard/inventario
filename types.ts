@@ -23,11 +23,15 @@ export interface ProductData {
   }
   
   
+  export type InputOrOutput ={
+    process:'input' | 'output'
+  }
+
   export type FormProductsProps = {
     title?: string,
     dataForm: FormProps,
     
-    //fetch: FetchProps,
+    process: InputOrOutput
     count?:React.ReactNode,
     labelButton?:string,
     children: React.ReactNode
